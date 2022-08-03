@@ -22,30 +22,54 @@ internal abstract class Card
 
     public abstract string Name();
 
-    public virtual int Rebate() => 45;
+    public virtual int Rebate()
+    {
+        return 45;
+    }
 }
 
 internal class Network : Card
 {
-    public override int Price() => 600;
+    public override int Price()
+    {
+        return 600;
+    }
 
-    public override string Name() => "Network";
+    public override string Name()
+    {
+        return "Network";
+    }
 }
 
 internal class CDRom : Card
 {
-    public override int Price() => 1500;
+    public override int Price()
+    {
+        return 1500;
+    }
 
-    public override string Name() => "CDRom";
+    public override string Name()
+    {
+        return "CDRom";
+    }
 
-    public override int Rebate() => 135;
+    public override int Rebate()
+    {
+        return 135;
+    }
 }
 
 internal class Tape : Card
 {
-    public override int Price() => 1000;
+    public override int Price()
+    {
+        return 1000;
+    }
 
-    public override string Name() => "Tape";
+    public override string Name()
+    {
+        return "Tape";
+    }
 }
 
 internal abstract class Monitor
@@ -57,16 +81,28 @@ internal abstract class Monitor
 
 internal class Color : Monitor
 {
-    public override int Price() => 1500;
+    public override int Price()
+    {
+        return 1500;
+    }
 
-    public override string Name() => "Color";
+    public override string Name()
+    {
+        return "Color";
+    }
 }
 
 internal class Monochrome : Monitor
 {
-    public override int Price() => 500;
+    public override int Price()
+    {
+        return 500;
+    }
 
-    public override string Name() => "Mono";
+    public override string Name()
+    {
+        return "Mono";
+    }
 }
 
 internal class Computer
