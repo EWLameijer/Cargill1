@@ -29,24 +29,27 @@ internal abstract class Component
     public int Price { get; init; }
 
     public string? Name { get; init; }
+
+    virtual public int Rebate { get; init; } = 0;
+
+    public int NetPrice => Price - Rebate;
 }
 
-// Een card heeft een rebate. Ik zou rebate in Component kunnen doen,
-// maar daar is de logica in Computer niet op berekend.
+// Een card heeft een rebate. 
 internal class Card : Component
 {
-    public int Rebate { get; init; } = 45;
+    override public int Rebate { get; init; } = 45;
 }
 
 class Monitor : Component { }
 
 internal record Computer(Card Card, Monitor Monitor)
 {
-    private int NetPrice() =>
-        Monitor.Price + Card.Price - Card.Rebate;
+    private int NetPrice =>
+        Monitor.NetPrice + Card.NetPrice;
 
     public void Print() =>
-        Console.WriteLine($"{Card.Name} {Monitor.Name}, net price = {NetPrice()}");
+        Console.WriteLine($"{Card.Name} {Monitor.Name}, net price = {NetPrice}");
 }
 
 
